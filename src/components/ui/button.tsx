@@ -11,16 +11,16 @@ const buttonStyles = cva(
         outline: "bg-transparent border-[2px] border-white hover:bg-white",
       },
       size: {
-        sm: "px-4 py-1 text-sm",
-        md: "px-6 py-2 text-base",
-        lg: "px-8 py-3 text-lg",
+        sm: "md:px-4 md:py-1 text-sm md:text-base px-2 py-1",
+        md: "md:px-6 md:py-2 px-4 py-1 text-base md:text-md",
+        lg: "md:px-8 md:py-3 px-6 py-2 text-lg md:text-lg",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "md",
     },
-  }
+  },
 );
 
 interface ButtonProps
@@ -41,31 +41,31 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       style,
       ...props
     },
-    ref
+    ref,
   ) => (
     <button
-      className={cn("p-[1px] relative", className)}
+      className={cn("relative p-[1px]", className)}
       style={style}
       ref={ref}
       {...props}
     >
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-r rounded-lg",
+          "absolute inset-0 rounded-lg bg-gradient-to-r",
           gradientFrom,
-          gradientTo
+          gradientTo,
         )}
       />
       <div
         className={cn(
           buttonStyles({ variant, size }),
-          "relative z-10 bg-background rounded-[8px] group hover:bg-transparent"
+          "group relative z-10 rounded-[8px] bg-background hover:bg-transparent",
         )}
       >
         {props.children}
       </div>
     </button>
-  )
+  ),
 );
 
 Button.displayName = "Button";

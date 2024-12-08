@@ -1,60 +1,29 @@
 import Background from "@/components/background";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { H1, H3 } from "@/components/ui/typography";
-import { motion } from "framer-motion";
-import { Cat, Laptop } from "lucide-react";
-import { Link } from "react-router-dom";
-
-const MotionSection = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <motion.div
-    className={className}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-  >
-    {children}
-  </motion.div>
-);
+import HeroSection from "./components/section/hero-section";
+import EducationSection from "./components/section/education-section";
+import Typography from "@/components/ui/typography";
+import Card from "./components/card";
+import { experience, expertise, programmingLanguages } from "./constant";
+import ExperienceSection from "./components/section/experience-section";
 
 export default function Home() {
   return (
     <>
-      <Background />
-      <Container className="flex-col items-center gap-8 z-10">
-        <MotionSection className="text-center">
-          <H1 gradient className="from-secondary to-sky-400">
-            TEERAPAT
-          </H1>
-          <H1 gradient className="from-secondary to-sky-400">
-            CHANTARAMANEE
-          </H1>
-        </MotionSection>
-
-        <MotionSection className="text-center">
-          <H3>Full-time Cat Lover</H3>
-          <H3>Part-time Software Engineer</H3>
-        </MotionSection>
-
-        <MotionSection className="flex flex-row">
-          <Cat size={64} color="white" />
-          <Laptop size={64} color="white" />
-        </MotionSection>
-
-        <MotionSection className="flex flex-row gap-4">
-          <Link to="/about">
-            <Button>About Me</Button>
-          </Link>
-          <Link to="/projects">
-            <Button>Projects</Button>
-          </Link>
-        </MotionSection>
+      {/* <Background /> */}
+      <Container className="z-10 max-w-[1000px] flex-col items-center gap-4 md:w-4/5 md:gap-8">
+        <HeroSection />
+        <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
+        <EducationSection />
+        <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
+        <ExperienceSection />
+        <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
+        <Typography variant="h2">Programming Languages</Typography>
+        <div className="flex flex-row flex-wrap gap-4">
+          {/* {Array.from(programmingLanguages.keys()).map((skill) => (
+            <SkillCard key={skill} name={skill} skills={programmingLanguages} />
+          ))} */}
+        </div>
       </Container>
     </>
   );

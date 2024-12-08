@@ -6,8 +6,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 const containerStyles = cva("flex justify-center mx-auto w-full min-h-screen", {
   variants: {
     variant: {
-      constrained: "sm:px-6 lg:px-8",
-      "padded-content": "px-4 sm:px-6 lg:px-8",
+      constrained: "sm:p-6 lg:p-8",
+      "padded-content": "p-4 sm:p-6 lg:p-16",
     },
   },
   defaultVariants: {
@@ -31,7 +31,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       {...props}
       ref={ref}
     />
-  )
+  ),
 );
 
 Container.displayName = "Container";

@@ -45,13 +45,13 @@ export default function StartAnimation({
     <AnimatePresence>
       {!getStarted && (
         <motion.div
-          className="flex flex-col items-center justify-center z-10"
+          className="z-10 flex flex-col items-center justify-center"
           initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex flex-col items-center justify-center relative">
+          <div className="relative flex flex-col items-center justify-center">
             <Lottie
               animationData={Computer}
               loop={false}
@@ -62,7 +62,7 @@ export default function StartAnimation({
             {started && (
               <TypeAnimation
                 sequence={["Teerapat"]}
-                className="text-3xl text-white top-1/4 absolute whitespace-pre-line text-center max-w-56 text-border"
+                className="absolute top-1/4 max-w-56 whitespace-pre-line text-center text-2xl text-border text-white sm:text-3xl"
                 speed={1}
                 deletionSpeed={10}
               />
@@ -75,7 +75,7 @@ export default function StartAnimation({
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className={cn(
-                  "text-white p-1 w-44 rounded-lg border-[1px] border-white shadow-white shadow-sm text-lg absolute top-1/2 hover:cursor-pointer bg-background bg-opacity-50"
+                  "text-md absolute top-1/2 rounded-lg border-[1px] border-white bg-background bg-opacity-50 px-3 py-1 text-white shadow-sm shadow-white hover:cursor-pointer sm:text-lg",
                 )}
                 onClick={handleGetStarted}
               >

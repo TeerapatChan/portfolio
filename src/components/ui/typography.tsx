@@ -1,107 +1,47 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 
-type VariantProps = {
-  gradient?: boolean;
-};
+const typographyStyles = cva("text-white", {
+  variants: {
+    variant: {
+      h1: "text-2xl md:text-3xl lg:text-4xl font-bold",
+      h2: "text-xl md:text-2xl lg:text-3xl font-semibold",
+      h3: "text-lg md:text-xl lg:text-2xl font-semibold",
+      h4: "text-md md:text-lg lg:text-xxl font-semibold",
+      body: "text-sm md:text-md lg:text-lg",
+      small: "text-sm md:text-md",
+    },
+  },
+  defaultVariants: {
+    variant: "body",
+  },
+});
 
-const createComponent = <T extends HTMLElement>(
-  tag: keyof JSX.IntrinsicElements,
-  defaultClassName: string,
-  displayName: string
-) => {
-  const Component = forwardRef<T, React.HTMLAttributes<T> & VariantProps>(
-    ({ className, gradient, ...props }, ref) => {
-      const variantClasses = gradient
-        ? "bg-gradient-to-r from-primary to-sky-300 text-transparent bg-clip-text"
-        : "";
+const Typography = ({
+  variant,
+  gradient,
+  className,
+  children,
+}: {
+  variant: "h1" | "h2" | "h3" | "h4" | "body" | "small";
+  gradient?: "default" | "custom";
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  const gradientClass = gradient
+    ? gradient === "custom"
+      ? "bg-gradient-to-r text-transparent bg-clip-text"
+      : "bg-gradient-to-r from-primary to-sky-300 text-transparent bg-clip-text"
+    : "";
 
-      return React.createElement(
-        tag,
-        {
-          ...props,
-          ref,
-          className: cn(defaultClassName, variantClasses, className),
-        },
-        props.children
-      );
-    }
+  return (
+    <div
+      className={cn(typographyStyles({ variant }), className, gradientClass)}
+    >
+      {children}
+    </div>
   );
-
-  Component.displayName = displayName;
-  return Component;
 };
 
-export const H1 = createComponent<HTMLHeadingElement>(
-  "h1",
-  "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-  "H1"
-);
-
-export const H2 = createComponent<HTMLHeadingElement>(
-  "h2",
-  "scroll-m-20 py-2 text-3xl font-semibold tracking-tight first:mt-0",
-  "H2"
-);
-
-export const H3 = createComponent<HTMLHeadingElement>(
-  "h3",
-  "scroll-m-20 text-2xl tracking-tight",
-  "H3"
-);
-
-export const H4 = createComponent<HTMLHeadingElement>(
-  "h4",
-  "scroll-m-20 text-xl tracking-tight",
-  "H4"
-);
-
-export const Lead = createComponent<HTMLParagraphElement>(
-  "p",
-  "text-xl text-muted-foreground",
-  "Lead"
-);
-
-export const P = createComponent<HTMLParagraphElement>("p", "leading-7", "P");
-
-export const Large = createComponent<HTMLDivElement>(
-  "div",
-  "text-lg font-semibold",
-  "Large"
-);
-
-export const Small = createComponent<HTMLParagraphElement>(
-  "p",
-  "text-sm font-medium leading-none",
-  "Small"
-);
-
-export const Muted = createComponent<HTMLSpanElement>(
-  "span",
-  "text-sm text-muted-foreground",
-  "Muted"
-);
-
-export const InlineCode = createComponent<HTMLSpanElement>(
-  "code",
-  "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
-  "InlineCode"
-);
-
-export const MultilineCode = createComponent<HTMLPreElement>(
-  "pre",
-  "relative rounded bg-muted p-4 font-mono text-sm font-semibold overflow-x-auto",
-  "MultilineCode"
-);
-
-export const List = createComponent<HTMLUListElement>(
-  "ul",
-  "my-6 ml-6 list-disc [&>li]:mt-2",
-  "List"
-);
-
-export const Quote = createComponent<HTMLQuoteElement>(
-  "blockquote",
-  "mt-6 border-l-2 pl-6 italic text-muted-foreground",
-  "Quote"
-);
+export default Typography;

@@ -8,7 +8,7 @@ export default function GetStarted() {
   return (
     <>
       <Background />
-      <Container className="flex-col items-center gap-4 z-10">
+      <Container className="z-10 flex-col items-center gap-4">
         <StartAnimation getStarted={getStarted} setGetStarted={setGetStarted} />
       </Container>
     </>
