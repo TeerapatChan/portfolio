@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonStyles = cva(
-  "relative inline-flex items-center justify-center text-white rounded-lg transition duration-200 w-full",
+  "relative inline-flex items-center justify-center text-white rounded-lg transition duration-200 w-full border-neutral-800 border-[1px] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => (
     <button
-      className={cn("relative p-[1px]", className)}
+      className={cn("relative", className)}
       style={style}
       ref={ref}
       {...props}
@@ -59,7 +59,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <div
         className={cn(
           buttonStyles({ variant, size }),
-          "group relative z-10 rounded-[8px] bg-background hover:bg-transparent",
+          "group relative z-10 rounded-[6px] bg-neutral-900 hover:bg-transparent",
         )}
       >
         {props.children}
