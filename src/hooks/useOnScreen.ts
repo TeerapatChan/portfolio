@@ -2,7 +2,7 @@ import { RefObject, useEffect, useState } from "react";
 
 export default function useOnScreen(
   ref: RefObject<HTMLElement>,
-  options: IntersectionObserverInit = { threshold: 0 },
+  options: IntersectionObserverInit = { threshold: 0.3 },
 ) {
   const [isIntersecting, setIntersecting] = useState(false);
 

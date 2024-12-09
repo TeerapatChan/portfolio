@@ -23,7 +23,10 @@ export default function HeroSection() {
           variants={childVariants}
         />
       </div>
-      <div className="flex w-full flex-col gap-4 p-4">
+      <motion.div
+        className="flex w-full flex-col gap-4 p-4"
+        variants={childVariants}
+      >
         <Typography variant="h3">Hi, I'm Benz </Typography>
         <div className="flex w-full flex-col">
           <Typography
@@ -49,7 +52,7 @@ export default function HeroSection() {
           <Button>Contact Me</Button>
           <Button>Projects</Button>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
