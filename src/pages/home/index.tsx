@@ -1,19 +1,28 @@
 import { Container } from "@/components/ui/container";
-import HeroSection from "./components/section/hero-section";
-import EducationSection from "./components/section/education-section";
-import ExperienceSection from "./components/section/experience-section";
-import SkillSection from "./components/section/skill-section";
+import { useState } from "react";
+import StartAnimation from "./components/start-animation";
+import Background from "@/components/background";
+import Home from "./components/home";
 
-export default function Home() {
+export default function GetStarted() {
+  const [getStarted, setGetStarted] = useState(false);
+  const [hide, setHide] = useState(false);
   return (
-    <Container className="font-parkinsans z-10 max-w-[1200px] flex-col items-center gap-4 md:w-4/5 md:gap-8">
-      <HeroSection />
-      <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
-      <ExperienceSection />
-      <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
-      <SkillSection />
-      <div className="mt-4 flex w-full flex-col gap-4 border-t-[1px] border-dashed border-neutral-800"></div>
-      <EducationSection />
-    </Container>
+    <>
+      {!hide ? (
+        <>
+          <Background />
+          <Container className="z-10 flex-col items-center gap-4">
+            <StartAnimation
+              getStarted={getStarted}
+              setGetStarted={setGetStarted}
+              setHide={setHide}
+            />
+          </Container>
+        </>
+      ) : (
+        <Home />
+      )}
+    </>
   );
 }

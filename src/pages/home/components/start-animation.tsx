@@ -9,11 +9,13 @@ import { useNavigate } from "react-router-dom";
 type StartAnimationProps = {
   getStarted: boolean;
   setGetStarted: (value: boolean) => void;
+  setHide: (value: boolean) => void;
 };
 
 export default function StartAnimation({
   getStarted,
   setGetStarted,
+  setHide,
 }: StartAnimationProps) {
   const lottieRef = useRef<any>(null);
   const [started, setStarted] = useState(false);
@@ -38,7 +40,7 @@ export default function StartAnimation({
     setTimeout(() => {
       setGetStarted(true);
     }, 500);
-    navigate("/home");
+    setHide(true);
   };
 
   return (

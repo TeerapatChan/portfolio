@@ -1,12 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import GetStarted from "./pages/start";
-import Home from "./pages/home";
+import GetStarted from "./pages/home";
+import Home from "./pages/home/components/home";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<GetStarted />} />
-      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }
