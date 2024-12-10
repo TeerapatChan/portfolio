@@ -2,7 +2,7 @@ import Typography from "@/components/ui/typography";
 import Card from "../card";
 import { motion } from "framer-motion";
 import { containerVariants } from "./animation";
-import { useSectionAnimation } from "@/hooks/useSectionAnimation";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 
 export default function EducationSection() {
   const { elementRef, isVisible } = useSectionAnimation();

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import useOnScreen from "./useOnScreen";
+import useOnScreen from "./use-on-screen";
 
 export function useSectionAnimation(threshold: number = 0.3) {
   const [isVisible, setIsVisible] = useState(false);

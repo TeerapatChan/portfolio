@@ -3,7 +3,7 @@ import Typography from "@/components/ui/typography";
 import Card from "../card";
 import { experience } from "../../constant";
 import { childVariants, containerVariants } from "./animation";
-import { useSectionAnimation } from "@/hooks/useSectionAnimation";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 
 export default function ExperienceSection() {
   const { elementRef, isVisible } = useSectionAnimation();

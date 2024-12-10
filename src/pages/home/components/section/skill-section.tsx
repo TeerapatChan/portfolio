@@ -2,7 +2,7 @@ import Typography from "@/components/ui/typography";
 import { frameworks, programmingLanguages } from "../../constant";
 import SkillCard from "../skill-card";
 import { motion } from "framer-motion";
-import { useSectionAnimation } from "@/hooks/useSectionAnimation";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 import { childVariants, containerVariants } from "./animation";
 
 export default function SkillSection() {
