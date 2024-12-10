@@ -4,7 +4,6 @@ import { TypeAnimation } from "react-type-animation";
 import Lottie from "lottie-react";
 import { cn } from "@/lib/utils";
 import Computer from "../../../../public/computer.json";
-import { useNavigate } from "react-router-dom";
 
 type StartAnimationProps = {
   getStarted: boolean;
@@ -20,7 +19,6 @@ export default function StartAnimation({
   const lottieRef = useRef<any>(null);
   const [started, setStarted] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const navigate = useNavigate();
   useEffect(() => {
     lottieRef.current?.playSegments([0, 95], true);
     lottieRef.current?.setSpeed(0.4);
