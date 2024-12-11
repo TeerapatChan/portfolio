@@ -12,11 +12,15 @@ export const frameworks = new Map<string, string>([
   ["Next.js", "next.png"],
   ["Tailwind", "tailwind.png"],
   ["Express", "express.png"],
-  ["PostgreSQL", "postgres.png"],
-  ["MongoDB", "mongo.svg"],
   ["Prisma", "prisma.png"],
   ["Fiber", "fiber.png"],
   ["GORM", "gorm.svg"],
+]);
+
+export const tools = new Map<string, string>([
+  ["PostgreSQL", "postgres.png"],
+  ["MongoDB", "mongo.svg"],
+  ["Git", "git.png"],
 ]);
 
 export const expertise = [
