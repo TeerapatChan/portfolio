@@ -33,7 +33,7 @@ export default function SkillSection() {
         className="flex flex-col gap-4 rounded-lg border-[1px] border-neutral-800 p-3 md:p-4"
         variants={childVariants}
       >
-        <Typography variant="h3">Framework & Library</Typography>
+        <Typography variant="h3">Frameworks & Libraries</Typography>
         <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {Array.from(frameworks).map(([title, icon]) => (
             <SkillCard key={title} title={title} icon={`framework/${icon}`} />
@@ -44,7 +44,7 @@ export default function SkillSection() {
         className="flex flex-col gap-4 rounded-lg border-[1px] border-neutral-800 p-3 md:p-4"
         variants={childVariants}
       >
-        <Typography variant="h3">Framework & Library</Typography>
+        <Typography variant="h3">Tools</Typography>
         <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {Array.from(tools).map(([title, icon]) => (
             <SkillCard key={title} title={title} icon={`tool/${icon}`} />
